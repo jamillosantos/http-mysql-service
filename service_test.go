@@ -4,7 +4,7 @@ import (
 	"log"
 	"testing"
 
-	"github.com/jamillosantos/http"
+	"github.com/lab259/http"
 	"github.com/jamillosantos/macchiato"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"

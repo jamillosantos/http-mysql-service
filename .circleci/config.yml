@@ -8,7 +8,7 @@ jobs:
       environment:
         MYSQL_USER: root
 
-    working_directory: /go/src/github.com/jamillosantos/http-mysql-service
+    working_directory: /go/src/github.com/lab259/http-mysql-service
     steps:
       - checkout
 
