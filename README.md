@@ -1,13 +1,13 @@
-[![CircleCI](https://circleci.com/gh/jamillosantos/http-mysql-service.svg?style=svg)](https://circleci.com/gh/jamillosantos/http-mysql-service) [![codecov](https://codecov.io/gh/jamillosantos/http-mysql-service/branch/master/graph/badge.svg)](https://codecov.io/gh/jamillosantos/http-mysql-service)
+[![CircleCI](https://circleci.com/gh/lab259/http-mysql-service.svg?style=svg)](https://circleci.com/gh/lab259/http-mysql-service) [![codecov](https://codecov.io/gh/lab259/http-mysql-service/branch/master/graph/badge.svg)](https://codecov.io/gh/lab259/http-mysql-service)
 
 # http-mysql-service
 
-The http-mysql-service is the [jamillosantos/http](//github.com/jamillosantos/http) service
+The http-mysql-service is the [lab259/http](//github.com/lab259/http) service
 implementation for the [go-sql-driver/mysql](//github.com/go-sql-driver/mysql) library.
 
 ## Dependencies
 
-It depends on the [jamillosantos/http](//github.com/jamillosantos/http) (and its dependencies,
+It depends on the [lab259/http](//github.com/lab259/http) (and its dependencies,
 of course) itself and the [go-sql-driver/mysql](//github.com/go-sql-driver/mysql) library.
 
 ## Installation
@@ -15,7 +15,7 @@ of course) itself and the [go-sql-driver/mysql](//github.com/go-sql-driver/mysql
 First, fetch the library to the repository.
 
 ```bash
-go get github.com/jamillosantos/http-mysql-service
+go get github.com/lab259/http-mysql-service
 ```
 
 ## Usage

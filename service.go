@@ -4,7 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"context"
-	"github.com/jamillosantos/http"
+	"github.com/lab259/http"
 	"database/sql"
 	_ "github.com/go-sql-driver/mysql"
 )
