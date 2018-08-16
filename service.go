@@ -1,12 +1,13 @@
 package mysqlsrv
 
 import (
+	"context"
+	"database/sql"
 	"errors"
 	"fmt"
-	"context"
-	"github.com/lab259/http"
-	"database/sql"
+
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/lab259/http"
 )
 
 // MySQLServiceConfiguration describes the `MySqlService` configuration.
@@ -123,4 +124,38 @@ func (service *MySQLService) RunWithConn(handler MySQLServiceConnHandler) error 
 
 	defer conn.Close()
 	return handler(conn)
+}
+
+// RunWithTx runs a handler passing a new instance of the a transaction.
+func (service *MySQLService) RunWithTx(handler func(conn *sql.Tx) error) (globalErr error) {
+	if !service.running {
+		return http.ErrServiceNotRunning
+	}
+
+	tx, err := service.db.Begin()
+	if err != nil {
+		return err
+	}
+	defer func() {
+		if r := recover(); r != nil {
+			tx.Rollback()
+			panic(r)
+		}
+		return
+	}()
+
+	err = handler(tx)
+	if err != nil {
+		errRollback := tx.Rollback()
+		if errRollback != nil {
+			return errRollback
+		}
+	}
+
+	err = tx.Commit()
+	if err != nil {
+		return err
+	}
+
+	return nil
 }

@@ -4,11 +4,12 @@ import (
 	"log"
 	"testing"
 
-	"github.com/lab259/http"
+	"database/sql"
+
 	"github.com/jamillosantos/macchiato"
+	"github.com/lab259/http"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"database/sql"
 	"golang.org/x/net/context"
 )
 
@@ -123,4 +124,28 @@ var _ = Describe("MySQLService", func() {
 		Expect(service.Restart()).To(BeNil())
 		Expect(service.RunWithConn(pingConn)).To(BeNil())
 	})
+
+	It("should initialize a transaction", func() {
+		var service MySQLService
+		Expect(service.ApplyConfiguration(MySQLServiceConfiguration{
+			Host:        "localhost",
+			User:        "root",
+			Password:    "",
+			Database:    "",
+			Port:        3306,
+			MaxPoolSize: 1,
+		})).To(BeNil())
+		Expect(service.Start()).To(BeNil())
+		defer service.Stop()
+		Expect(service.RunWithTx(func(tx *sql.Tx) error {
+			Expect(tx).NotTo(BeNil())
+			return nil
+		})).To(BeNil())
+	})
+
+	PIt("should run a transaction committing changes")
+
+	PIt("should run a transaction rolling changes due to return error")
+
+	PIt("should run a transaction rolling changes due to panic")
 })
