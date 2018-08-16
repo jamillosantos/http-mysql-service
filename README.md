@@ -1,4 +1,5 @@
-[![CircleCI](https://circleci.com/gh/lab259/http-mysql-service.svg?style=svg)](https://circleci.com/gh/lab259/http-mysql-service) [![codecov](https://codecov.io/gh/lab259/http-mysql-service/branch/master/graph/badge.svg)](https://codecov.io/gh/lab259/http-mysql-service)
+[![CircleCI](https://circleci.com/gh/lab259/http-mysql-service.svg?style=shield)](https://circleci.com/gh/lab259/http-mysql-service)
+[![codecov](https://codecov.io/gh/lab259/http-mysql-service/branch/master/graph/badge.svg)](https://codecov.io/gh/lab259/http-mysql-service)
 
 # http-mysql-service
 
